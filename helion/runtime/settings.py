@@ -96,7 +96,9 @@ class _Settings:
     )
     static_shapes: bool = False
     use_default_config: bool = os.environ.get("HELION_USE_DEFAULT_CONFIG", "0") == "1"
-    autotune_log_level: int = logging.INFO
+    autotune_log_level: int = int(
+        os.environ.get("HELION_AUTOTUNE_LOG_LEVEL", logging.INFO)
+    )
     autotune_compile_timeout: int = int(
         os.environ.get("HELION_AUTOTUNE_COMPILE_TIMEOUT", "60")
     )
